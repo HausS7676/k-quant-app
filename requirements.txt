@@ -1,0 +1,9 @@
+streamlit
+FinanceDataReader
+pandas
+numpy
+python-dateutil
+requests
+lxml
+beautifulsoup4
+plotly
