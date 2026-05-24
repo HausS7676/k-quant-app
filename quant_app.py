@@ -191,7 +191,7 @@ with tab2:
                 if pdf is not None and not pdf.empty:
                     prices[code] = pdf['Close']
             
-            prices = prices.fillna(method='ffill').dropna()
+            prices = prices.ffill().dropna()
             
             # 월말 데이터만 추출 (리밸런싱은 매월 말 1회 진행)
             monthly_prices = prices.resample('M').last()
