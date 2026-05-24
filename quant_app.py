@@ -143,7 +143,7 @@ with tab1:
             total = len(target_stocks)
             
             with concurrent.futures.ThreadPoolExecutor(max_workers=40) as executor:
-                futures = {executor.submit(process_screening, row['Code'], row['Name'], row.get('Market','-'), row.get('Sector','-'), target_date_dt, start_date_dt, kospi_ret): row for row in target_stocks}
+                futures = {executor.submit(process_screening, row['Code'], row['Name'], row.get('Market','-'), row.get('Industry', row.get('Sector', '-')), target_date_dt, start_date_dt, kospi_ret): row for row in target_stocks}
                 for future in concurrent.futures.as_completed(futures):
                     completed += 1
                     if completed % 20 == 0 or completed == total:
