@@ -194,7 +194,7 @@ with tab2:
             prices = prices.ffill().dropna()
             
             # 월말 데이터만 추출 (리밸런싱은 매월 말 1회 진행)
-            monthly_prices = prices.resample('M').last()
+            monthly_prices = prices.resample('ME').last()
             
             portfolio_values = []
             current_capital = initial_capital
